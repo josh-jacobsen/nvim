@@ -5,6 +5,12 @@
 vim.opt.hlsearch = true
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
+-- exit insert mode
+vim.keymap.set('i', 'jk', '<ESC>')
+
+-- Shoutcut to save file (ZZ saves and exits, ZQ exists without saving, so ZW makes sense to save without exiting)
+vim.keymap.set('n', 'ZW', ':w<CR>', { desc = 'Save file' })
+
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
@@ -33,6 +39,10 @@ vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left wind
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+
+-- Neo-tree Keybinds
+vim.keymap.set('n', '<leader>no', ':Neotree<CR>', { desc = 'Open Neotree' })
+vim.keymap.set('n', '<leader>nc', ':Neotree close right<CR>', { desc = 'Close Neotree' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
