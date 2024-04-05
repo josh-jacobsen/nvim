@@ -43,6 +43,7 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- Neo-tree Keybinds
 vim.keymap.set('n', '<leader>no', ':Neotree<CR>', { desc = 'Open Neotree' })
 vim.keymap.set('n', '<leader>nc', ':Neotree close right<CR>', { desc = 'Close Neotree' })
+vim.keymap.set('n', '<leader>nf', ':Neotree reveal=true<CR>', { desc = 'Focus on current file in Neotree' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
