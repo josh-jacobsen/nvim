@@ -40,10 +40,14 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
--- Neo-tree Keybinds
+-- Neo-tree keymaps
 vim.keymap.set('n', '<leader>no', ':Neotree<CR>', { desc = 'Open Neotree' })
 vim.keymap.set('n', '<leader>nc', ':Neotree close right<CR>', { desc = 'Close Neotree' })
 vim.keymap.set('n', '<leader>nf', ':Neotree reveal=true<CR>', { desc = 'Focus on current file in Neotree' })
+
+-- ToggleTerm keymaps
+vim.keymap.set('n', '<leader>nt', ':ToggleTerm size=15<CR>', { desc = 'Open ToggleTerm' })
+vim.keymap.set('n', '<leader>nx', ':ToggleTerm<CR>', { desc = 'Close ToggleTerm' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
