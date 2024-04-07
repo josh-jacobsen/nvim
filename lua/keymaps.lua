@@ -41,7 +41,6 @@ vim.keymap.set('n', '<leader>nf', ':Neotree reveal=true<CR>', { desc = 'Focus on
 
 -- ToggleTerm keymaps
 vim.keymap.set('n', '<leader>nt', ':ToggleTerm size=15<CR>', { desc = 'Open ToggleTerm bottom' })
-vim.keymap.set('n', '<leader>nx', ':ToggleTerm<CR>', { desc = 'Close ToggleTerm' })
 vim.keymap.set('n', '<leader>nl', ':ToggleTerm direction=float<CR>', { desc = 'Open ToggleTerm float' })
 
 -- [[ Basic Autocommands ]]
