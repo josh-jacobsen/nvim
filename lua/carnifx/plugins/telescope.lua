@@ -72,6 +72,11 @@ return {
         --   },
         -- },
         -- pickers = {}
+        pickers = {
+          find_files = {
+            find_command = { 'rg', '--files', '--iglob', '!.git', '--hidden' },
+          },
+        },
         extensions = {
           ['ui-select'] = {
             require('telescope.themes').get_dropdown(),
