@@ -17,13 +17,7 @@ vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagn
 vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Show diagnostic [E]rror messages' })
 vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 
--- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
--- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
--- is not what someone will guess without a bit more experience.
---
--- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
--- or just use <C-\><C-n> to exit terminal mode
-vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+-- Exit ToggleTerm using the keymap <C-c><C-d>
 
 -- TIP: Disable arrow keys in normal mode
 -- vim.keymap.set('n', '<left>', '<cmd>echo "Use h to move!!"<CR>')
@@ -46,8 +40,9 @@ vim.keymap.set('n', '<leader>nc', ':Neotree close right<CR>', { desc = 'Close Ne
 vim.keymap.set('n', '<leader>nf', ':Neotree reveal=true<CR>', { desc = 'Focus on current file in Neotree' })
 
 -- ToggleTerm keymaps
-vim.keymap.set('n', '<leader>nt', ':ToggleTerm size=15<CR>', { desc = 'Open ToggleTerm' })
+vim.keymap.set('n', '<leader>nt', ':ToggleTerm size=15<CR>', { desc = 'Open ToggleTerm bottom' })
 vim.keymap.set('n', '<leader>nx', ':ToggleTerm<CR>', { desc = 'Close ToggleTerm' })
+vim.keymap.set('n', '<leader>nl', ':ToggleTerm direction=float<CR>', { desc = 'Open ToggleTerm float' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`

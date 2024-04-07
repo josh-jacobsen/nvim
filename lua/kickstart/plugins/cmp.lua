@@ -68,7 +68,7 @@ return {
           --  This will expand snippets if the LSP sent a snippet.
           -- ['<C-y>'] = cmp.mapping.confirm { select = true },
 
-          ['<CR>'] = cmp.mapping.confirm { select = false },
+          ['<CR>'] = cmp.mapping.confirm { select = true },
 
           ['<C-e>'] = cmp.mapping.abort(), -- close completion window
 
