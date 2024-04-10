@@ -18,6 +18,11 @@ return {
       { 'folke/neodev.nvim', opts = {} },
     },
     config = function()
+      -- import lspconfig plugin
+      local lspconfig = require 'lspconfig'
+      -- import mason_lspconfig plugin
+      local mason_lspconfig = require 'mason-lspconfig'
+
       -- Brief aside: **What is LSP?**
       --
       -- LSP is an initialism you've probably heard, but might not understand what it is.
@@ -127,6 +132,12 @@ return {
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
+      -- Change the Diagnostic symbols in the sign column (gutter)
+      local signs = { Error = ' ', Warn = ' ', Hint = '󰠠 ', Info = ' ' }
+      for type, icon in pairs(signs) do
+        local hl = 'DiagnosticSign' .. type
+        vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = '' })
+      end
       -- Enable the following language servers
       --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
       --
@@ -184,25 +195,61 @@ return {
 
       -- You can add other tools here that you want Mason to install
       -- for you, so that they are available from within Neovim.
-      local ensure_installed = vim.tbl_keys(servers or {})
-      vim.list_extend(ensure_installed, {
-        'stylua', -- Used to format Lua code
-        'prettier', -- prettier formatter
-        'eslint_d',
-      })
-      require('mason-tool-installer').setup { ensure_installed = ensure_installed }
-
-      require('mason-lspconfig').setup {
-        handlers = {
-          function(server_name)
-            local server = servers[server_name] or {}
-            -- This handles overriding only values explicitly passed
-            -- by the server configuration above. Useful when disabling
-            -- certain features of an LSP (for example, turning off formatting for tsserver)
-            server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-            require('lspconfig')[server_name].setup(server)
-          end,
+      require('mason-tool-installer').setup {
+        ensure_installed = {
+          'prettier', -- prettier formatter
+          'prettierd', -- prettierd formatter
+          'stylua', -- lua formatter
+          -- 'eslint_d',
         },
+      }
+
+      mason_lspconfig.setup {
+        -- list of servers for mason to install
+        ensure_installed = {
+          'lua_ls',
+          'eslint',
+          -- Don't install tsserver from Mason as it conflicts with the version installed in each TS project. This does mean that the LSP (in the form of
+          -- typescript-tools) won't attach to the buffer until npm install has been run in each directory
+          -- 'tsserver',
+        },
+      }
+
+      mason_lspconfig.setup_handlers {
+        -- default handler for installed servers
+        function(server_name)
+          lspconfig[server_name].setup {
+            capabilities = capabilities,
+          }
+        end,
+        ['eslint'] = function()
+          lspconfig['eslint'].setup {
+            capabilities = capabilities,
+            on_attach = function(client, bufnr)
+              vim.api.nvim_create_autocmd('BufWritePre', {
+                buffer = bufnr,
+                command = 'EslintFixAll',
+              })
+            end,
+          }
+        end,
+        ['lua_ls'] = function()
+          -- configure lua server (with special settings)
+          lspconfig['lua_ls'].setup {
+            capabilities = capabilities,
+            settings = {
+              Lua = {
+                -- make the language server recognize "vim" global
+                diagnostics = {
+                  globals = { 'vim' },
+                },
+                completion = {
+                  callSnippet = 'Replace',
+                },
+              },
+            },
+          }
+        end,
       }
     end,
   },
