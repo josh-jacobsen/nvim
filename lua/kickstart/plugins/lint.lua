@@ -6,8 +6,16 @@ return {
       local lint = require 'lint'
       lint.linters_by_ft = {
         markdown = { 'markdownlint' },
+        -- javascript = { 'eslint' },
+        -- typescript = { 'eslint' },
+        -- javascriptreact = { 'eslint' },
+        -- typescriptreact = { 'eslint' },
       }
 
+      -- lint.linters_by_ft['javascript'] = { 'eslint' }
+      -- lint.linters_by_ft['typescript'] = { 'eslint' }
+      -- lint.linters_by_ft['javascriptreact'] = { 'eslint' }
+      -- lint.linters_by_ft['ypescriptreact'] = { 'eslint' }
       -- To allow other plugins to add linters to require('lint').linters_by_ft,
       -- instead set linters_by_ft like this:
       -- lint.linters_by_ft = lint.linters_by_ft or {}
@@ -27,6 +35,7 @@ return {
       --   terraform = { "tflint" },
       --   text = { "vale" }
       -- }
+
       --
       -- You can disable the default linters by setting their filetypes to nil:
       -- lint.linters_by_ft['clojure'] = nil
@@ -49,6 +58,9 @@ return {
           require('lint').try_lint()
         end,
       })
+      vim.keymap.set('n', '<leader>l', function()
+        lint.try_lint()
+      end, { desc = 'Trigger linting for current file' })
     end,
   },
 }
