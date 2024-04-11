@@ -225,6 +225,7 @@ return {
         ['eslint'] = function()
           lspconfig['eslint'].setup {
             capabilities = capabilities,
+            ---@diagnostic disable-next-line: unused-local
             on_attach = function(client, bufnr)
               vim.api.nvim_create_autocmd('BufWritePre', {
                 buffer = bufnr,

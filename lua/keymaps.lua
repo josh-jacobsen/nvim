@@ -11,6 +11,10 @@ vim.keymap.set('i', 'jk', '<ESC>')
 -- Shoutcut to save file (ZZ saves and exits, ZQ exists without saving, so ZW makes sense to save without exiting)
 vim.keymap.set('n', 'ZW', ':w<CR>', { desc = 'Save file' })
 
+-- When code is selected, use J and K to move the blocks up/down
+vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
+vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
+
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, { desc = 'Go to next [D]iagnostic message' })
