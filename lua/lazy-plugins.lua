@@ -51,8 +51,6 @@ require('lazy').setup({
 
   require 'kickstart/plugins/treesitter',
 
-  -- require 'kickstart/plugins/lint',
-
   require 'carnifx/plugins/neo-tree',
 
   require 'carnifx/plugins/telescope',
