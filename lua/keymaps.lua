@@ -39,13 +39,12 @@ vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower win
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 -- Neo-tree keymaps
-vim.keymap.set('n', '<leader>no', ':Neotree<CR>', { desc = 'Open Neotree' })
-vim.keymap.set('n', '<leader>nc', ':Neotree close right<CR>', { desc = 'Close Neotree' })
-vim.keymap.set('n', '<leader>nf', ':Neotree reveal=true<CR>', { desc = 'Focus on current file in Neotree' })
+vim.keymap.set('n', '<leader>mc', ':Neotree close right<CR>', { desc = '[M]isc [C]lose' })
+vim.keymap.set('n', '<leader>mf', ':Neotree reveal=true<CR>', { desc = '[Misc] [F]ind file in Neotree' })
 
 -- ToggleTerm keymaps
-vim.keymap.set('n', '<leader>nt', ':ToggleTerm size=15<CR>', { desc = 'Open ToggleTerm bottom' })
-vim.keymap.set('n', '<leader>nl', ':ToggleTerm direction=float<CR>', { desc = 'Open ToggleTerm float' })
+vim.keymap.set('n', '<leader>mb', ':ToggleTerm size=15<CR>', { desc = '[Misc] Open Terminal [B]ottom' })
+vim.keymap.set('n', '<leader>ml', ':ToggleTerm direction=float<CR>', { desc = '[M]isc Open Terminal [L]evitating' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
