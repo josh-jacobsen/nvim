@@ -8,6 +8,9 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 -- exit insert mode
 vim.keymap.set('i', 'jk', '<ESC>')
 
+-- delete single character without copying into register
+vim.keymap.set('n', 'x', '"_x')
+
 -- Shoutcut to save file (ZZ saves and exits, ZQ exists without saving, so ZW makes sense to save without exiting)
 vim.keymap.set('n', 'ZW', ':w<CR>', { desc = 'Save file' })
 
@@ -41,6 +44,9 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- Neo-tree keymaps
 vim.keymap.set('n', '<leader>mc', ':Neotree close right<CR>', { desc = '[M]isc [C]lose' })
 vim.keymap.set('n', '<leader>mf', ':Neotree reveal=true<CR>', { desc = '[Misc] [F]ind file in Neotree' })
+
+-- ESLint keymaps
+vim.keymap.set('n', '<leader>cl', ':EslintFixAll<CR>', { desc = '[C]ode [L]int' })
 
 -- ToggleTerm keymaps
 vim.keymap.set('n', '<leader>mb', ':ToggleTerm size=15<CR>', { desc = '[Misc] Open Terminal [B]ottom' })
