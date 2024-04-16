@@ -4,17 +4,17 @@ return {
     event = { 'BufWritePre', 'BufNewFile' },
     keys = {
       {
-        '<leader>f',
+        '<leader>cf',
         function()
-          require('conform').format { async = false, lsp_fallback = true, timeout_ms = 250 }
+          require('conform').format { async = false, lsp_fallback = true, timeout_ms = 400 }
         end,
         mode = '',
-        desc = '[F]ormat buffer',
+        desc = '[C]ode [F]ormat',
       },
     },
 
     opts = {
-      format_on_save = { async = false, lsp_fallback = true, timeout_ms = 250 },
+      format_on_save = { async = false, lsp_fallback = true, timeout_ms = 400 },
 
       formatters_by_ft = {
         lua = { 'stylua' },
