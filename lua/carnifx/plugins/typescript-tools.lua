@@ -9,8 +9,20 @@ return {
   dependencies = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
   opts = {
     on_attach = function()
-      vim.keymap.set('n', '<leader>ci', ':TSToolsAddMissingImports<CR>', { desc = 'TS Tools Add Missing Imports' })
-      vim.keymap.set('n', '<leader>cr', ':TSToolsRemoveUnused<CR>', { desc = 'TS Tools Remove Unused' })
+      vim.keymap.set('n', '<leader>ci', ':TSToolsAddMissingImports<CR>', { desc = '[C]ode: Add Missing [I]mports' })
+      vim.keymap.set('n', '<leader>cr', ':TSToolsRemoveUnused<CR>', { desc = '[C]ode: [R]emove Unused Statements' })
+      vim.keymap.set('n', '<leader>cu', ':TSToolsRemoveUnusedImports<CR>', { desc = '[C]ode: Remove [U]nused Imports' })
+      vim.keymap.set('n', '<leader>co', ':TSToolsOrganizeImports<CR>', { desc = '[C]ode: [O]organise Imports' })
+      vim.keymap.set('n', '<leader>ce', ':TSToolsFixAll<CR>', { desc = '[C]ode: Fix [E]verything' })
+      -- TSToolsOrganizeImports - sorts and removes unused imports
+      -- TSToolsSortImports - sorts imports
+      -- TSToolsRemoveUnusedImports - removes unused imports
+      -- TSToolsRemoveUnused - removes all unused statements
+      -- TSToolsAddMissingImports - adds imports for all statements that lack one and can be imported
+      -- TSToolsFixAll - fixes all fixable errors
+      -- TSToolsGoToSourceDefinition - goes to source definition (available since TS v4.7)
+      -- TSToolsRenameFile - allow to rename current file and apply changes to connected files
+      -- TSToolsFileReferences - find files that reference the current file (available since TS v4.2)
     end,
   },
 }
