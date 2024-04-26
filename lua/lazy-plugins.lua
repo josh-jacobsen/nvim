@@ -62,6 +62,10 @@ require('lazy').setup({
   require 'carnifx/plugins/lsp-signature',
   require 'carnifx/plugins/vim-tmux-navigator',
   require 'carnifx/plugins/vim-test',
+  require 'carnifx/plugins/harpoon',
+  require 'carnifx/plugins/neotest',
+  -- require 'carnifx.plugins.dapui-old',
+  require 'carnifx.plugins.dap',
   -- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the
   -- init.lua. If you want these files, they are in the repository, so you can just download them and
   -- place them in the correct locations.
