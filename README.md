@@ -7,3 +7,6 @@ This started as a fork of [nvim-lua/kickstart.nvim](https://github.com/nvim-lua/
 ### Plugins to add
 
 [Undotree](https://github.com/mbbill/undotree)
+
+### Dotfile inspiration
+https://github.com/omerxx/dotfiles/tree/master/nvim
