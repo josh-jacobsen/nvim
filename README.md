@@ -11,6 +11,7 @@ This started as a fork of [nvim-lua/kickstart.nvim](https://github.com/nvim-lua/
 1. https://github.com/folke/noice.nvim
 1. https://github.com/folke/zen-mode.nvim
 1. https://github.com/folke/trouble.nvim/tree/dev
+2. https://github.com/numToStr/FTerm.nvim
 
 ### Dotfile inspiration
 https://github.com/omerxx/dotfiles/tree/master/nvim
