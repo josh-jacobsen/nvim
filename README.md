@@ -6,10 +6,11 @@ This started as a fork of [nvim-lua/kickstart.nvim](https://github.com/nvim-lua/
 
 ### Plugins to add
 
-[Undotree](https://github.com/mbbill/undotree)
-https://github.com/NeogitOrg/neogit
-https://github.com/folke/noice.nvim
-https://github.com/folke/zen-mode.nvim
+1. [Undotree](https://github.com/mbbill/undotree)
+1. https://github.com/NeogitOrg/neogit
+1. https://github.com/folke/noice.nvim
+1. https://github.com/folke/zen-mode.nvim
+1. https://github.com/folke/trouble.nvim/tree/dev
 
 ### Dotfile inspiration
 https://github.com/omerxx/dotfiles/tree/master/nvim
