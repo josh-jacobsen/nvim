@@ -37,6 +37,15 @@ return {
     -- vim.keymap.set('n', '<leader>hj>', function()
     --   harpoon:list():next()
     -- end)
+
+    -- vim.keymap.set('n', '<C-t>', function()
+    --   harpoon:list():prev()
+    -- end)
+    --
+    -- vim.keymap.set('n', '<C-i>', function()
+    --   harpoon:list():next()
+    -- end)
+
     -- vim.keymap.set('n', '<leader>ha', mark.add_file, { desc = 'Harpoon: Mark File' })
   end,
   -- local harpoon = require 'harpoon'

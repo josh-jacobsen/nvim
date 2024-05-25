@@ -53,8 +53,9 @@ return {
       },
       adapters = {
         require 'neotest-jest' {
+          dap = { justMyCode = false },
           jestCommand = 'npm test --',
-          jestConfigFile = 'custom.jest.config.ts',
+          jestConfigFile = 'jest.config.ts',
           env = { CI = true },
           cwd = function(path)
             return vim.fn.getcwd()
@@ -74,7 +75,6 @@ return {
     vim.keymap.set('n', '<leader>tp', function()
       neotest.output_panel.toggle()
     end, { noremap = true, silent = true, nowait = true, desc = '[T]est [P]anel Toggle' })
-
     vim.keymap.set('n', '<leader>to', function()
       neotest.output.open { enter = true }
     end, { noremap = true, silent = true, nowait = true, desc = '[T]est [O]utput Open' })
@@ -82,6 +82,10 @@ return {
     vim.keymap.set('n', '<leader>tn', function()
       neotest.run.run()
     end, { desc = '[T]est [N]earest' })
+
+    vim.keymap.set('n', '<leader>ty', function()
+      require('neotest').run.run { strategy = 'dap' }
+    end, { desc = '[T]est [D]ebug' })
 
     vim.keymap.set('n', '<leader>tl', function()
       neotest.run.run_last { enter = true }

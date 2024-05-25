@@ -6,7 +6,7 @@ return {
       {
         '<leader>cf',
         function()
-          require('conform').format { async = false, lsp_fallback = true, timeout_ms = 400 }
+          require('conform').format { async = false, lsp_fallback = true }
         end,
         mode = '',
         desc = '[C]ode [F]ormat',
@@ -14,7 +14,7 @@ return {
     },
 
     opts = {
-      format_on_save = { async = false, lsp_fallback = true, timeout_ms = 400 },
+      format_on_save = { async = false, lsp_fallback = true },
 
       formatters_by_ft = {
         lua = { 'stylua' },
