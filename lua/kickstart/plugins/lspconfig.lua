@@ -212,6 +212,8 @@ return {
           -- Don't install tsserver from Mason as it conflicts with the version installed in each TS project. This does mean that the LSP (in the form of
           -- typescript-tools) won't attach to the buffer until npm install has been run in each directory
           -- 'tsserver',
+          'tflint',
+          'terraformls',
         },
       }
 
